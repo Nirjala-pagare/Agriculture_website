@@ -1,0 +1,501 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+:root {
+    --bg-color: #f6f5fa;
+    --text-color: #404040;
+    --primary-color: rgb(33, 130, 37);
+    --primary-light: rgba(33, 130, 37, 0.1);
+    --primary-dark: rgb(26, 102, 29);
+    --hover-color: rgb(26, 102, 29);
+    --h3-font: 10rem;
+    --big-font: 3.5rem;
+    --h2-font: 2.25rem;
+    --p-font: 0.9rem;
+    --shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 15px 35px rgba(33, 130, 37, 0.2);
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+body {
+    background: linear-gradient(135deg, #f8fdf8 0%, #f0f7f0 50%, #e8f3e8 100%);
+    min-height: 100vh;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* ===== NAVBAR ===== */
+header .navbar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 15px 30px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(33, 130, 37, 0.1);
+    transition: var(--transition);
+}
+
+header .navbar:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.navbar a {
+    padding: 8px 20px;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 25px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--primary-light), transparent);
+    transition: left 0.5s ease;
+}
+
+.navbar a:hover::before {
+    left: 100%;
+}
+
+.navbar a:hover {
+    color: var(--primary-color);
+    background: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+li {
+    margin: 0 15px;
+}
+
+/* ===== MAIN TITLE ===== */
+h1#f-title {
+    color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 0% 5% 0%;
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+h1#f-title::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--hover-color));
+    border-radius: 2px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== MAIN CONTENT CONTAINER ===== */
+.f-class {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 40px;
+    align-items: flex-start;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+/* ===== CALCULATOR SECTION ===== */
+.calci {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fff8 100%);
+    width: 50%;
+    min-height: 500px;
+    margin: 0;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(33, 130, 37, 0.1);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.calci::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-color), var(--hover-color));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.calci:hover::before {
+    transform: scaleX(1);
+}
+
+.calci:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* ===== IMAGE STYLING ===== */
+img {
+    max-width: 800px; /* maximum width */
+    width: 100%; 
+    max-height: 100%;      /* relative size for smaller screens */
+    padding: 20px;
+    border-radius: 20px;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+    margin-top: 50px;
+}
+
+
+img:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== INPUT SECTIONS ===== */
+p#c-sarea {
+    display: block;
+    margin-bottom: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 8px;
+}
+
+p#c-sarea::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.calci:hover p#c-sarea::after {
+    width: 80px;
+}
+
+input.c-area {
+    margin-top: 10px;
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid rgba(33, 130, 37, 0.2);
+    border-radius: 12px;
+    font-size: 16px;
+    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+input.c-area:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(33, 130, 37, 0.1);
+    transform: translateY(-2px);
+}
+
+/* ===== NUTRIENT INPUTS ===== */
+.nitrogen {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 25px 0;
+    padding: 20px;
+    background: rgba(33, 130, 37, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(33, 130, 37, 0.1);
+    transition: var(--transition);
+}
+
+.nitrogen:hover {
+    background: rgba(33, 130, 37, 0.08);
+    transform: translateX(5px);
+}
+
+input {
+    border: 2px solid rgba(33, 130, 37, 0.3);
+    border-radius: 10px;
+    padding: 12px 15px;
+    font-size: 16px;
+    transition: var(--transition);
+    background: white;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(33, 130, 37, 0.1);
+    transform: scale(1.02);
+}
+
+input.n-area,
+input.phos,
+input.pota {
+    width: 65%;
+    padding: 12px 15px;
+    margin: 0;
+    border: 2px solid rgba(33, 130, 37, 0.3);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+input.n-area:focus,
+input.phos:focus,
+input.pota:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(33, 130, 37, 0.1);
+    transform: scale(1.02);
+}
+
+/* ===== ANSWER SECTION ===== */
+.ans {
+    display: flex;
+    margin-top: 30px;
+    padding: 25px;
+    background: linear-gradient(135deg, rgba(33, 130, 37, 0.05), rgba(33, 130, 37, 0.02));
+    border-radius: 15px;
+    border: 1px solid rgba(33, 130, 37, 0.1);
+    transition: var(--transition);
+    animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.ans:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(33, 130, 37, 0.1);
+}
+
+/* ===== BUTTON STYLING ===== */
+a.btn {
+    width: 200px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, var(--primary-color), var(--hover-color));
+    margin: 20px auto;
+    padding: 15px 30px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: var(--transition);
+    box-shadow: 0 6px 20px rgba(33, 130, 37, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+a.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+a.btn:hover::before {
+    left: 100%;
+}
+
+a.btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(33, 130, 37, 0.4);
+    background: linear-gradient(135deg, var(--hover-color), var(--primary-dark));
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .f-class {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .calci {
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+    img {
+        width: 80%;
+        max-width: 500px;
+    }
+    
+    h1#f-title {
+        font-size: 2.8rem;
+        padding: 100px 0% 3% 0%;
+    }
+    
+    header .navbar {
+        position: static;
+        justify-content: center;
+        margin: 20px auto;
+        width: 90%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    header .navbar {
+        flex-direction: column;
+        padding: 15px;
+        gap: 10px;
+    }
+    
+    li {
+        margin: 5px 0;
+    }
+    
+    .navbar a {
+        display: block;
+        text-align: center;
+        padding: 12px 20px;
+    }
+    
+    h1#f-title {
+        font-size: 2.2rem;
+        padding: 80px 20px 20px 20px;
+    }
+    
+    .f-class {
+        padding: 0 15px;
+        gap: 25px;
+    }
+    
+    .calci {
+        width: 100%;
+        padding: 30px 20px;
+    }
+    
+    img {
+        width: 100%;
+        padding: 15px;
+    }
+    
+    .nitrogen {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    input.n-area,
+    input.phos,
+    input.pota {
+        width: 100%;
+    }
+    
+    a.btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    h1#f-title {
+        font-size: 1.8rem;
+        padding: 70px 15px 15px 15px;
+    }
+    
+    .calci {
+        padding: 25px 15px;
+    }
+    
+    input.c-area,
+    input.n-area,
+    input.phos,
+    input.pota {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .navbar a {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+    
+    a.btn {
+        height: 45px;
+        font-size: 14px;
+    }
+}
+
+/* Animation for inputs */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+input:focus {
+    animation: pulse 0.3s ease;
+}
+
+/* Selection color */
+::selection {
+    background: rgba(33, 130, 37, 0.2);
+    color: var(--primary-dark);
+}
+
+/* Smooth loading animation */
+.f-class > * {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.f-class > *:nth-child(1) { animation-delay: 0.1s; }
+.f-class > *:nth-child(2) { animation-delay: 0.2s; }
