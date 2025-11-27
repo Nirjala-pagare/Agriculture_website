@@ -91,8 +91,13 @@ index.html
 /api/weather?city=pune
 
 📤 Deployment
+
 The project is deployed using Vercel:
+
 Push project to GitHub
+
 Connect GitHub repo to Vercel
+
 Add API key as environment variable
+
 Deploy 🎉
