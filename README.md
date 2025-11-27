@@ -51,15 +51,25 @@ A section to keep farmers updated with the latest farming and market updates.
 
 /
 ├── api/
+
 │ └── weather.js # Serverless weather API
+
 ├── images/ # Icons & illustrations
+
 ├── index.html # Homepage
+
 ├── weather.html # Weather page
+
 ├── Calculator.html # Calculator page
+
 ├── news.html # News page
+
 ├── Agri.html # Agriculture guide page
+
 ├── *.html # Other crop pages
+
 ├── *.css # Styling files
+
 └── app.js # Frontend logic
 
 
